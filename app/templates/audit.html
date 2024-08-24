@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CX Quality Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="static/Style.css"> -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/Style.css') }}">
+</head>
+  <body>
+
+{% block content %}
+  
+  <div class="container">
+  <div class="row" style=" margin-top:5%; margin-bottom: 5%;">
+      <div class="col-lg-6 col-sm-12">
+        <div class="Head"><h1>Hello <label style="color: white;">{{current_user.first_name}}!</label></h1></div>
+
+          <h1 class="Head">Let's Audit Some Chats</h1><br>
+
+          <form method="POST" action="" name="AuditForm">
+            <div class="mb-3">
+          {{ form.csrf_token }}
+
+          {{ form.hidden_tag() }}
+          <h4 class="Head"><a style="color: white ;" href="{{chat_to_update.convo_link}}" target="_blank">Convo Link</a></h4>
+            {{form.convo_link(class="form-control",value=chat_to_update.convo_link,readonly=true,hidden=true)}}<br>
+            <label style="color: white;"> {{ form.cx_agent.label(class="form-label") }}</label><br>
+            {{form.auditing_id(class="form-control",value=chat_to_update.id,readonly=true,hidden=true)}}<br>
+
+            {{ form.cx_agent(class="form-control", value=chat_to_update.cx_agent,readonly=true) }}<br>
+        
+            <label style="color: white;"> {{ form.supervisor.label(class="form-label") }}</label>
+            
+            {{ form.supervisor(class="form-control", value=chat_to_update.supervisor,readonly=true) }}<br>
+            
+            <label style="color: white;"> {{ form.label.label(class="form-label") }}</label>
+            
+            {{ form.label(class="form-control", value=chat_to_update.label,readonly=true) }}<br>
+
+            
+            <label style="color: white;"> {{ form.assigned_group.label(class="form-label") }}</label>
+            
+            {{ form.assigned_group(class="form-control", value=chat_to_update.assigned_group,readonly=true) }}<br>
+
+            
+            <!--<label style="color: white;"> {{ form.assigned_date.label(class="form-label") }}</label>-->
+            
+           {{ form.assigned_date(class="form-control", value=chat_to_update.assigned_date,readonly=true,hidden=true) }}
+
+            {{form.time_stamp(class="form-control",hidden=true)}}
+           <!--- <label style="color: white;"> {{ form.convo_link.label(class="form-label") }}</label>
+            
+            {{ form.convo_link(class="form-control", value=chat_to_update.convo_link,readonly=true) }}-->
+            
+            <label style="color: white;">{{ form.date_of_conversation.label(class="form-label") }}</label>
+            <br>
+          
+            {{ form.date_of_conversation(class="form-control", value=chat_to_update.date_of_conversation,readonly=true) }}<br>
+
+            <label style="color: white;"> {{ form.quality_agent.label(class="form-label") }}</label><br>
+            {{ form.quality_agent(class="form-control",value=current_user.email,readonly=true) }}<br><br>
+          
+            <p style="color: white;" class="form-label"><b>Identification of contact reason & Problem</b>
+              <br>
+              - Checks chat history, checks user tool for relevant background info, <br>and accurately identifies contact reason.<br>
+              - Effectively identifies the user's problem and determines the best course of action to resolve it.</p><br>
+            {{ form.Identification_of_contact(style="color: white;")}} 
+            {{form.Identification_of_contact_comment(placeholder="comment",class="form-control")}}<br>
+             
+             
+             <p style="color: white;" class="form-label"><b>Information Accuracy</b><br>
+                  
+              - Provides the user with complete and accurate information to solve their issue.<br>
+              - Accurately understands the Thndr app and investment products.<br>
+              - Communicates clearly and effectively with users.<br>
+              - Provides honest feedback on timelines, SLAs, and issues.<br>
+              - Responds appropriately to user questions.<br>
+              - Provides users with any information they need to take the next steps.<br>
+              - Does not overwhelm users with unnecessary information.<br> </p>
+          
+            {{ form.Information_Accuracy(style="color: white;")}} 
+            {{form.Information_Accuracy_comment(placeholder="comment",class="form-control")}}<br>
+
+            
+            <p style="color: white;" class="form-label"><b>Proactively providing feedback and the best solution
+            </b><br>
+              - Avoid any lack of support on all sides<br>
+              - Flag any issue to the user that may not be clear to him.<br>
+              - Set clear expectations to the user about the process whether it's set by Thndr or EGX or FRA.<br>
+              - Clarify to the user whether what happens is a normal process or an actual issue<br>
+              - Avoid any dis-satisfaction of the user that may result with FRA Complaint<br></p>
+           
+            
+
+
+            {{ form.Proactively_providing_solution(style="color: white;")}} 
+            {{form.Proactively_providing_solution_comment(placeholder="comment",class="form-control")}}<br>
+
+            
+            
+            <p style="color: white;" class="form-label"><b>Setting correct expectations & Follow up</b><br>
+              -Setting correct expectations for the user in terms of follow-up dates or timing.<br>
+              - Updates the user with any next steps/feedback that is required.<br></p>
+
+            {{ form.Setting_correct_Follow_up(style="color: white;")}} 
+            {{form.Setting_correct_Follow_up_comment(placeholder="comment",class="form-control")}}<br>
+
+            
+            <p style="color: white;" class="form-label"><b>Contact reason (label)</b><br>
+              -Uses the correct label when resolving chat.<br>
+            </p>
+            {{ form.Contact_reason(style="color: white;")}} 
+            {{form.Contact_reason_comment(placeholder="comment",class="form-control")}}<br>
+
+            <p style="color: white;" class="form-label"><b>Documented notes & case information</b><br>
+              - Adds an internal note documenting what happened with the user & any action taken.<br>
+              - Documents the chat interaction and creates a case file for future reference.<br>
+
+            </p>
+            {{ form.Documented_notes_information(style="color: white;")}} 
+            {{form.Documented_notes_information_comment(placeholder="comment",class="form-control")}}<br>
+
+            <p style="color: white;" class="form-label"><b>Ticket escalation</b><br>
+              -Escalates the issue on the relevant channel with all the needed details.<br>
+            </p>
+            {{ form.Ticket_escalation(style="color: white;")}} 
+            {{form.Ticket_escalation_comment(placeholder="comment",class="form-control")}}<br>
+
+                     
+            <p style="color: white;" class="form-label"><b>Adherence to policies and procedures</b><br>
+              -Adheres to company policies and procedures throughout the chat interaction.<br>
+              -Adheres to the right actions and follows the correct steps to solve the issue.<br>
+            </p>
+
+          
+            {{ form.Adherence_to_procedures(style="color: white;")}} 
+            {{form.Adherence_to_procedures_comment(placeholder="comment",class="form-control")}}<br>
+
+            <p style="color: white;" class="form-label"><b>Opening & Closing </b><br>
+              - Uses Thndr greeting, uses the user's first name, and matches the user's info.<br>
+              - Uses one of Thndr's closing lines and uses a closing relevant to the issue/question.<br>
+            </p>
+            {{ form.Opening_Closing(style="color: white;")}} 
+            {{form.Opening_Closing_comment(placeholder="comment",class="form-control")}}<br>
+
+            <p style="color: white;" class="form-label"><b>Format, Writing, & Professionalism </b><br>
+              - Uses clear communication (bullets when possible), short sentences, and not too many fragmented messages.<br>
+              - Uses the user's language (English/Arabic), uses simple language that is clear/direct, and uses proper spelling & grammar.<br>
+              - Uses professional/on-brand communication.<br>
+            </p>
+          
+            {{ form.Format_Writing_Professionalism(style="color: white;")}} 
+            {{form.Format_Writing_Professionalism_comment(placeholder="comment",class="form-control")}}<br>
+
+            
+            <p style="color: white;" class="form-label"><b>Apologizing & Empathy</b><br>
+              - Apologizes when needed & Shows appreciation for the user's feedback and shows enthusiasm for the user's positive feedback (if applicable).<br>
+              - Puts himself/herself in the user's shoes, understands why they are frustrated and doesn't dismiss or belittle their issue.<br>
+            </p>
+          
+            {{ form.Apologizing_Empathy(style="color: white;")}} 
+            {{form.Apologizing_Empathy_comment(placeholder="comment",class="form-control")}}<br>
+          
+
+           
+         
+            <p style="color: white;" class="form-label"><b>Active Listening/ Reply & Acknowledgment</b><br>
+              - Apologizes when needed & Shows appreciation for the user's feedback and shows enthusiasm for the user's positive feedback (if applicable).<br>
+              - Puts himself/herself in the user's shoes, understands why they are frustrated and doesn't dismiss or belittle their issue.<br>
+            </p>
+          
+            {{ form.Active_Acknowledgment(style="color: white;")}} 
+            {{form.Active_Acknowledgment_comment(placeholder="comment",class="form-control")}}<br>
+
+
+            <p style="color: white;" class="form-label"><b>Conversation Control</b><br>
+              -Maintains control of the conversation and keeps the user on track.<br>
+            </p>
+            {{ form.Conversation_Control(style="color: white;")}} 
+            {{form.Conversation_Control_comment(placeholder="comment",class="form-control")}}<br>
+            
+            <p style="color: white;" class="form-label"><b> Confidentiality</b><br>
+              Maintains user confidentiality and does not divulge user info through channels that are not secure (FB/WhatsApp).<br>
+            </p>
+            {{ form.Confidentiality(style="color: white;")}} 
+            {{form.Confidentiality_comment(placeholder="comment",class="form-control")}}<br>
+
+
+
+
+
+            <!-- <p style="color: white;" class="form-label"><b>Is Contact Auto-fail?</b><br></p>
+          
+            {{ form.auto_fail(style="color: white;")}}  -->
+            <p style="color: white;" class="form-label"><b> General Feedback/Comment</b><br>
+            {{form.observation_recommendation(placeholder="observation_recommendation",class="form-control")}}<br>
+
+           
+
+           
+            {{ form.submit_button_1(class="btn btn-primary") }}
+
+            {{ form.submit_button_2(class="btn btn-primary") }}
+            {{ form.submit_button_3(class="btn btn-primary") }}
+            {{ form.submit_button_4(class="btn btn-primary") }}
+            <!-- <button type="button" class="btn btn-primary" id="skipbutton" method="POST" name="skipbutton">Skip</button> -->
+
+           
+  {% endblock %}
+  </body>
+</html>

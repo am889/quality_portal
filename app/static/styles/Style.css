@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+    font-family: 'DM Sans', sans-serif;
+    
+}
+
+.Head{
+    color: yellow;
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+    padding: 10px;
+    
+  }
+label.radio-label {
+    color: #ffffff;  /* Example: Set text color for radio button labels */
+}

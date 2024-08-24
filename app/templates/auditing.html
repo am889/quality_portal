@@ -1,0 +1,64 @@
+{% extends 'Navbar.html' %}
+  {% block content %}
+  
+  <div class="container">
+    <div class="row" style=" margin-top:5%;">
+        <div class="col-lg-12 col-sm-12">
+      
+          <h1 style="color: white;">Add Chats</h1>
+          <form method="POST" action="">
+            <div class="mb-3">
+            
+            {{ form.hidden_tag() }}
+            <label style="color: white;"> {{ form.cx_agent.label(class="form-label") }}</label>
+            
+            {{ form.cx_agent(class="form-control") }}<br>
+        
+            <label style="color: white;"> {{ form.supervisor.label(class="form-label") }}</label>
+            
+            {{ form.supervisor(class="form-control") }}<br>
+        
+            <label style="color: white;"> {{ form.convo_link.label(class="form-label") }}</label>
+            
+            {{ form.convo_link(class="form-control") }}
+            <br>
+            <label style="color: white;">{{ form.date_of_conversation.label(class="form-label") }}</label>
+            <br>
+            {{ form.date_of_conversation(class="form-control") }}<br>
+            <br>
+            <label style="color: white;"> {{ form.quality_agent.label(class="form-label") }}</label>
+            {{ form.quality_agent(class="form-control") }}<br>
+
+            <label style="color: white;"> {{ form.assigned_group.label(class="form-label") }}</label>
+            {{ form.assigned_group(class="form-control") }}<br>   
+            
+            <label style="color: white;"> {{ form.label.label(class="form-label") }}</label>
+            {{ form.label(class="form-control") }}<br>
+
+            <label style="color: white;"> {{ form.assigned_date.label(class="form-label") }}</label>
+            {{ form.assigned_date(class="form-control") }}<br>
+
+
+
+            <button type="button" class="btn btn-success float-right"style= "--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 0.5rem; --bs-btn-font-size: .95rem;"> <a class="nav-link active" aria-current="page" href="{{url_for('addchats.addchatgs')}}">Add chats using Google sheets</a></button>
+            <button type="button" class="btn btn-danger float-right"style= "--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 0.5rem; --bs-btn-font-size: .95rem;"> <a class="nav-link active" aria-current="page" href="{{url_for('addchats.deleteall')}}">Delete all chats</a></button>
+
+            {{ form.submit(class="btn btn-primary") }}
+            </div>
+          
+          </form>
+          <h4 class="Head">Queue {{queue_count}}</h4>
+          <table class="table table-dark table-striped">
+            {% for ourchat in ourchats %}
+              <tr>
+              <td>{{ourchat.id}}</td><td>{{ourchat.cx_agent}}</td>-<td>{{ourchat.supervisor}}</td>-<td>{{ourchat.convo_link}}</a></td>-<td>{{ourchat.date_of_conversation}}</td>
+              <td><button class="btn btn-danger"><a href="{{url_for('addchats.chatdelete',id=ourchat.id)}}">Delete</a></button></td></tr>
+            {% endfor %} 
+          </table>
+        
+  
+  </div>
+  </div>
+  </div>
+
+  {% endblock %}

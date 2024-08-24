@@ -1,0 +1,48 @@
+{% extends 'Navbar.html' %}
+  {% block content %}
+  
+  <div class="container">
+    <div class="row" style=" margin-top:5%; margin-bottom: 5%;">
+        <div class="col-lg-6 col-sm-12">
+      
+          <h1 class="Head">Add User</h1>
+          <form method="POST" action="">
+            <div class="mb-3">
+            
+            {{ form.hidden_tag() }}
+            <label style="color: white;"> {{ form.first_name.label(class="form-label") }}</label>
+            
+            {{ form.first_name(class="form-control") }}<br>
+        
+            <label style="color: white;"> {{ form.second_name.label(class="form-label") }}</label>
+            
+            {{ form.second_name(class="form-control") }}<br>
+        
+            <label style="color: white;"> {{ form.email.label(class="form-label") }}</label>
+            
+            {{ form.email(class="form-control") }}
+            <br>
+            <label style="color: white;"> {{ form.role.label(class="form-label") }}</label>
+            
+            {{ form.role(class="form-control") }}<br>
+            <label style="color: white;">{{ form.password.label(class="form-label") }}</label>
+            <br>
+            {{ form.password(class="form-control") }}<br>
+            <br>
+            {{ form.submit(class="btn btn-primary") }}
+            </div>
+          
+          </form>
+          <table class="table table-dark table-striped">
+          {% for ouruser in ourusers %}
+            <tr>
+            <td>{{ouruser.id}}</td><td>{{ouruser.first_name}}</td>-<td>{{ouruser.second_name}}</td>-<td><a href="{{url_for('register.update',id=ouruser.id)}}">{{ouruser.email}}</a></td><td><button class="btn btn-danger"><a href="{{url_for('register.delete',id=ouruser.id)}}">Delete</a></button></td></tr>
+          {% endfor %} 
+        </table>
+        
+  
+  </div>
+  </div>
+  </div>
+
+  {% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'Navbar.html' %}
+{% block content %}
+
+<div class="container" style="margin-top: 5%;">
+  <div class="row">
+    <h1 style="color: white;">Dashboard</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <form method="post">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <div class="form-group">
+          {{ form.start_date.label(style="color: white;") }}
+          {{ form.start_date(class="form-control") }}
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form.end_date.label(style="color: white;") }}
+        {{ form.end_date(class="form-control") }}
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        {{ form.submit(class="btn btn-primary mt-4") }}
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3 mt-4">
+  <div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name: {{current_user.first_name}} {{current_user.second_name}}</li>
+      <li class="list-group-item">Email: {{current_user.email}}</li>
+      <!-- <li class="list-group-item">Audited Today:{{today_audits_count}}</li> -->
+    </ul>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-12">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>Quality Agent</th>
+          <th>Audited</th>
+        </tr>
+      </thead>
+      <tbody class="table-dark">
+        {% for user_count in user_counts %}
+        <tr>
+          <td>{{ user_count.quality_agent }}</td>
+          <td>{{ user_count.count }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<img src="{{ chart_url }}" alt="Bar Chart">
+{% endblock %}
+
+
+  
+ 

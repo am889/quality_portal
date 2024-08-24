@@ -1,0 +1,242 @@
+
+   
+      {% extends 'Navbar.html' %}
+      {% block content %}
+<div class="container">
+    <div class="row" style=" margin-top:5%; margin-bottom: 5%;" translate="no">
+        <div class="col">
+          <div class="container text-center">
+           <!-- <h1 class="Head">Welcome to <label style="color: white;">CX Quality Tool</label> </h1>--></div>
+            <div class="Head"><h1>Hello <label style="color: white;">{{current_user.first_name}}!</label></h1></div>
+          
+          <div class="Head"><h3>It's <label style="color: white;">{{date}}!</label></h3></div>
+          {{hours}}
+          <h4 class="Head">Unaudited Chats {{queue_count}}</h4>
+          
+          <div class="Head"><h1></h1></div>
+
+         <!--<div><h4 style="color: white;">You have audit {{count}}/40 Today</h4> </div>-->
+     <hr style="color: white;">
+          
+<h1 style="text-align: center; color: white;">Quality Score Card</h1><br>
+<!--<img src="https://media.giphy.com/media/l0HlTdK9f97qfOGRy/giphy.gif" sizes="150px*140px">-->
+<h2 style="color: yellow;">Knowledge & Accuracy</h2><br>
+<h3 style="color: white;"><strong>-Identification of contact reason & Problem</strong></h3>
+<p style="color: white;">"-Checks chat history, checks user tool for relevant background info, and accurately identifies contact reason.<br>
+  - Effectively identifies the user's problem and determines the best course of action to resolve it."
+  </p>
+  <div class="container">
+    <div class="row">
+
+<h5 style="color:white">-Zero points</h5>
+<p style="color: white;font-size: large;">CXS didn't ask appropriate questions to clarify the issue.</p><br>
+<h5 style="color:white">-Full Point</h5>
+<p style="color: white;font-size: large;">CXS asked appropriate probing questions that allowed for a full understanding of the customer's concern.</p><br>
+<hr style="color: white;">
+<div class="col">
+  <h5 style="color: white;">Auto Fail Eligible</h5>
+  </div>
+  <div class="col">
+  
+  <h5 style="color: white;">Total Point Value:10 Points</h5><br>
+  </div>
+    </div>
+  <h3 style="color: white;"><strong>-Information Accuracy</strong></h3>
+  <p style="color: white;">
+    - Provides the user with complete and accurate information to solve their issue.<br>
+    - Accurately understands the Thndr app and investment products.<br>
+    - Communicates clearly and effectively with users.<br>
+    - Provides honest feedback on timelines, SLAs, and issues.<br>
+    - Responds appropriately to user questions.<br>
+    - Provides users with any information they need to take the next steps.<br>
+    - Does not overwhelm users with unnecessary information.<br>
+    
+    
+    </p>
+    <div class="container">
+      <div class="row">
+  
+  <h5 style="color:white">-Zero points</h5>
+  <p style="color: white;font-size: large;">CXS provided incorrect or incomplete information or information that was not related to the customer concern.</p><br>
+  <h5 style="color:white">-Full Point</h5>
+  <p style="color: white;font-size: large;">CXS Provided accurate and complete information, provide solutions to user's concerns, and provide additional related benefits the taken action and further more resources for more information about the subjected matter.</p><br>
+  <hr style="color: white;">
+  <div class="col">
+    <h5 style="color: white;">Auto Fail Eligible</h5>
+    </div>
+    <div class="col">
+    <h5 style="color: white;">Total Point Value:10 Points</h5><br>
+    </div>
+      </div>
+    <h3 style="color: white;"><strong>-Proactively providing feedback</strong></h3>
+    <p style="color: white;">
+      - Avoid any lack of support on all sides <br>
+      - Flag any issue to the user that may not be clear to him<br>
+      - Set clear expectations to the user about the process whether it's set by Thndr or EGX or FRA.<br>
+      - Clarify to the user whether what happens is a normal process or an actual issue<br>
+      - Avoid any dis-satisfaction of the user that may result with FRA Complaint"<br>
+      </p>
+      <div class="container">
+        <div class="row">
+    
+    <h5 style="color:white">-Zero points</h5>
+    <p style="color: white;font-size: large;">"
+      CXS didnt support & clarify the user if the occurrence is a standard procedure or an actual problem.<br>
+      CXS didnt clarify to the user regarding the process, whether it is established by Thndr, EGX, or FRA.</p><br>
+    <h5 style="color:white">-Full Point</h5>
+    <p style="color: white;font-size: large;">CXS provided all the needed suport  & all the clear expectations.</p><br>
+    <hr style="color: white;">
+    <div class="col">
+      <h5 style="color: white;">Auto Fail Eligible</h5>
+      </div>
+      <div class="col">
+      <h5 style="color: white;">Total Point Value:10 Points</h5><br>
+      </div>
+        </div>
+      <h3 style="color: white;"><strong>-Setting correct expectations & Follow up</strong></h3>
+      <p style="color: white;">
+        - Setting correct expectations for the user in terms of follow-up dates or timing.<br>
+        - Updates the user with any next steps/feedback that is required.<br>
+        
+        </p>
+        <div class="container">
+          <div class="row">
+      
+      <h5 style="color:white">-Zero points</h5>
+      <p style="color: white;font-size: large;">Informed the user with wrong SLA, or didn't attempt to update the user once.</p><br>
+      <h5 style="color:white">-Full Point</h5>
+      <p style="color: white;font-size: large;">Stting correct SLA and follow timeline and updating the user on time.</p><br>
+      <hr style="color: white;">
+      <div class="col">
+        <h5 style="color: white;">Auto Fail Eligible</h5>
+        </div>
+        <div class="col">
+        <h5 style="color: white;">Total Point Value:10 Points</h5><br>
+        </div>
+          </div>
+          <hr>
+          <h2 style="color: yellow;"></h2><br>
+<h3 style="color: white;"><strong>-Contact reason (label)</strong></h3>
+<p style="color: white;">Uses the correct label when resolving chat.<br>
+  </p>
+  <div class="container">
+    <div class="row">
+
+<h5 style="color:white">-Zero points</h5>
+<p style="color: white;font-size: large;">When resolving a chat, CXS didnt utilize the appropriate label.</p><br>
+<h5 style="color:white">-Full Point</h5>
+<p style="color: white;font-size: large;">CXS used the correct label.</p><br>
+<hr style="color: white;">
+<div class="col">
+  <h5 style="color: white;">Auto Fail Not Eligible</h5>
+  </div>
+  <div class="col">
+  
+  <h5 style="color: white;">Total Point Value:6 Points</h5><br>
+  </div>
+    </div>
+
+    <h3 style="color: white;"><strong>-Documented notes & case information</strong></h3>
+<p style="color: white;">- Adds an internal note documenting what happened with the user & any action taken.<br>
+  - Documents the chat interaction and creates a case file for future reference.<br>
+  
+  </p>
+  <div class="container">
+    <div class="row">
+
+<h5 style="color:white">-Zero points</h5>
+<p style="color: white;font-size: large;">Improper use of systems or failure to document notes, Incorrect or unnecessary reach for other teams</p><br>
+<h5 style="color:white">-Full Point</h5>
+<p style="color: white;font-size: large;">Full-detailed notes about user interaction in the appropriate system </p><br>
+<hr style="color: white;">
+<div class="col">
+  <h5 style="color: white;">Auto Fail Not Eligible</h5>
+  </div>
+  <div class="col">
+  
+  <h5 style="color: white;">Total Point Value:6 Points</h5><br>
+  </div>
+    </div>
+
+    <h3 style="color: white;"><strong>-Ticket escalation</strong></h3>
+    <p style="color: white;">Escalates the issue on the relevant channel.<br>
+      </p>
+      <div class="container">
+        <div class="row">
+    
+    <h5 style="color:white">-Zero points</h5>
+    <p style="color: white;font-size: large;">CXS didnt escalate the issue on the relevant channel for further action</p><br>
+    <h5 style="color:white">-Full Point</h5>
+    <p style="color: white;font-size: large;">CXS escalated the issue.</p><br>
+    <hr style="color: white;">
+    <div class="col">
+      <h5 style="color: white;">Auto Fail Eligible</h5>
+      </div>
+      <div class="col">
+      
+      <h5 style="color: white;">Total Point Value:6 Points</h5><br>
+      </div>
+        </div>
+        <h3 style="color: white;"><strong>-Adherence to policies and procedures<br>
+        -Taking the right actions and correct steps
+         </strong></h3>
+        <p style="color: white;">Adheres to company policies and procedures throughout the chat interaction.<br>
+          Adheres to the right actions and follows the correct steps to solve the issue.
+          <br>
+          </p>
+          <div class="container">
+            <div class="row">
+        
+        <h5 style="color:white">-Zero points</h5>
+        <p style="color: white;font-size: large;">Policy or procedure were violated.<br>
+          Not attempting to take any action to solve the issue.
+          </p><br>
+        <h5 style="color:white">-Full Point</h5>
+        <p style="color: white;font-size: large;">"All policies and procedures were followed<br>
+          All actions taken correctly and ensuring the issue is resolved within SLA"
+          </p><br>
+        <hr style="color: white;">
+        <div class="col">
+          <h5 style="color: white;">Auto Fail Eligible</h5>
+          </div>
+          <div class="col">
+          
+          <h5 style="color: white;">Total Point Value:6 Points</h5><br>
+          </div>
+            </div>
+
+            <h2 style="color: yellow;">Soft Skills</h2><br>
+            <h3 style="color: white;"><strong>-Opening & Closing</strong></h3>
+            <p style="color: white;">- Uses Thndr greeting, uses the user's first name, and matches the user's info.<br>
+              - Uses one of Thndr's closing lines and uses a closing relevant to the issue/question.<br>
+              </p>
+              <div class="container">
+                <div class="row">
+            
+            <h5 style="color:white">-Zero points</h5>
+            <p style="color: white;font-size: large;">CXS didn't greet customer or brand the company.</p><br>
+            <h5 style="color:white">-Full Point</h5>
+            <p style="color: white;font-size: large;">CXS performed all points of the opening and closing greeting.</p><br>
+            <hr style="color: white;">
+            <div class="col">
+              <h5 style="color: white;">Auto Fail Not Eligible</h5>
+              </div>
+              <div class="col">
+              
+              <h5 style="color: white;">Total Point Value:6 Points</h5><br>
+              </div>
+                </div>
+            
+
+        
+    
+  
+</div>
+</div>
+
+          
+         
+<br>
+<br>
+
+   {% endblock %}
